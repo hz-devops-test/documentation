@@ -87,12 +87,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          gh pr ready "${number}"
-          echo "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+          gh pr ready ${{ steps.find-pr.outputs.number }}
+
+      - name: 'Merge PR #${{ steps.find-pr.outputs.number }}'
+        if: steps.find-pr.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
           gh pr merge \
-            "${number}" \
+            ${{ steps.find-pr.outputs.number }} \
             --squash
-          
       # Checks must pass: a red check on a version update means a broken site would go live.
       # - name: Merge the PR
       #   if: steps.find-pr.outputs.number != ''
