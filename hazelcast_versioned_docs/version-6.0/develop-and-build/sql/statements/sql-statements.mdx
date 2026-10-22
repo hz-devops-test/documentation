@@ -1,0 +1,42 @@
+---
+title: "SQL Statements"
+sidebar_label: "Overview"
+sidebar_position: 1
+slug: /sql/sql-statements
+---
+
+Hazelcast supports the following SQL statements. Explore the available statements and find more details about them.
+
+## DML Statements
+
+| Statement | Usage |
+| --- | --- |
+| [`SELECT`](./select.mdx) | Read data from a table. |
+| [`SINK INTO/INSERT INTO`](./sink-into.mdx) | Add data to a map and/or forward data to other systems. |
+| [`UPDATE`](./update.mdx) | Overwrite data in a table. |
+| [`DELETE`](./delete.mdx) | Delete data from a table. |
+
+## DDL Statements
+
+| Statement | Usage |
+| --- | --- |
+| [`CREATE MAPPING`](./create-mapping.mdx) | Map a local or remote data object to a table that Hazelcast can access. |
+| [`SHOW MAPPINGS`](./show-mappings.mdx) | Get the names of existing mappings. |
+| [`DROP MAPPING`](./drop-mapping.mdx) | Remove a mapping. |
+| [`CREATE VIEW`](./create-view.mdx) | Create a virtual table based on the result set of a SQL query. Views can be reused in other queries. |
+| [`DROP VIEW`](./drop-view.mdx) | Delete a view. |
+| [`CREATE DATA CONNECTION`](./create-data-connection.mdx) | Create the metadata required to connect to an external system for later use. |
+| [`DROP DATA CONNECTION`](./drop-data-connection.mdx) | Delete a data connection. |
+| [`SHOW RESOURCES`](./show-resources.mdx) | Get the names of accessible resources for a data connection. |
+| [`CREATE INDEX`](./create-index.mdx) | Create a sorted, hash, or bitmap index for a given map. |
+
+## Job Management
+
+| Statement | Usage |
+| --- | --- |
+| [`CREATE JOB`](./create-job.mdx) | Create a job that is not tied to the client session. |
+| [`ALTER JOB`](./alter-job.mdx) | Restart, suspend, or resume a job. |
+| [`SHOW JOBS`](./show-jobs.mdx) | Get the names of all running jobs. |
+| [`DROP JOB`](./drop-job.mdx) | Cancel a job. |
+| [`CREATE OR REPLACE SNAPSHOT`](./create-snapshot.mdx) <Badge type="enterprise" /> | Create a snapshot of a running job so you can stop and restart it at a later date. |
+| [`DROP SNAPSHOT`](./drop-snapshot.mdx) <Badge type="enterprise" /> | Drop an existing snapshot. |
