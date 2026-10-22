@@ -61,6 +61,7 @@ jobs:
             exit 1
           fi
           echo "number=${numbers}" >> "${GITHUB_OUTPUT}"
+          echo "PR NUMBER : ${numbers}"
 
       - name: Check there is nothing to release
         if: steps.find-pr.outputs.number == ''
