@@ -85,10 +85,10 @@ jobs:
       - name: 'Merge PR #${{ steps.find-pr.outputs.number }}'
         if: steps.find-pr.outputs.number != ''
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           gh pr ready "${number}"
-
+          echo "XXXXXXXXXXXXXXXXXXXXXXXXXX"
           gh pr merge \
             "${number}" \
             --squash
