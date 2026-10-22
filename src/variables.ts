@@ -102,6 +102,33 @@ export const versionedVariables: Record<string, Record<string, Record<string, st
       "url-cloud-signup": "https://cloud.hazelcast.com/sign-up?utm_source=docs-website",
       "version": "6.2-SNAPSHOT"
     },
+    "6.1": {
+      "ee-version": "6.1.0",
+      "enterprise-product-name": "Enterprise Edition",
+      "full-version": "6.1.0",
+      "hazelcast-cloud": "Cloud",
+      "hz-repo-swagger-branch": "master",
+      "java-client": "Java Client and Embedded Server",
+      "jet-version": "4.5.4",
+      "minimum-java-version": "17",
+      "minimum-maven-version": "3.9",
+      "minor-version": "6.1",
+      "open-source-product-name": "Community Edition",
+      "os-version": "6.1.0",
+      "page-latest-supported-clc": "5.5.1",
+      "page-latest-supported-cplusplus-client": "5.7.1",
+      "page-latest-supported-csharp-client": "5.7.0",
+      "page-latest-supported-go-client": "1.6.0",
+      "page-latest-supported-mc": "5.13-snapshot",
+      "page-latest-supported-mc-installer": "latest-snapshot",
+      "page-latest-supported-nodejs-client": "5.7.0",
+      "page-latest-supported-po": "latest-snapshot",
+      "page-latest-supported-python-client": "5.7.0",
+      "ucd": "User Code Deployment",
+      "ucn": "User Code Namespaces",
+      "url-cloud-signup": "https://cloud.hazelcast.com/sign-up?utm_source=docs-website",
+      "version": "6.1"
+    },
     "6.0": {
       "ee-version": "6.0.0",
       "enterprise-product-name": "Enterprise Edition",
@@ -303,7 +330,7 @@ export const versionedVariables: Record<string, Record<string, Record<string, st
       "mc-repo-swagger-branch": "5.12.1",
       "open-source-product-name": "Community Edition",
       "page-latest-supported-clc": "5.5.1",
-      "page-latest-supported-hazelcast": "6.0"
+      "page-latest-supported-hazelcast": "6.1"
     },
     "5.11": {
       "enterprise-product-name": "Enterprise Edition",
