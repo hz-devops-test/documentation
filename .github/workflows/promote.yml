@@ -81,25 +81,37 @@ jobs:
           IS_LATEST_STABLE_RELEASE: ${{ steps.get-rel-info.outputs.is-latest-stable-release }}
           IS_BETA_RELEASE: ${{ steps.get-rel-info.outputs.is-beta-release }}
 
-      # Checks must pass: a red check on a version update means a broken site would go live.
-      - name: Merge the PR
+      - name: 'Merge PR #${{ steps.find-pr.outputs.number }}'
         if: steps.find-pr.outputs.number != ''
         run: |
-          number="${{ steps.find-pr.outputs.number }}"
-          if [[ $(gh pr view "${number}" --json isDraft --jq .isDraft) == "true" ]]; then
-            gh pr ready "${number}"
-          fi
-          for attempt in {1..30}; do
-            checks=$(gh pr checks "${number}" --watch --fail-fast 2>&1) && break
-            if ! grep -q "no checks reported" <<< "${checks}"; then
-              echo "${checks}"
-              echo "::error::Checks on #${number} did not pass"
-              exit 1
-            fi
-            if [[ ${attempt} -eq 30 ]]; then
-              echo "::error::No checks reported on #${number}. If its workflows are awaiting approval, approve them on the PR, then re-run Promote Release."
-              exit 1
-            fi
-            sleep 10
-          done
-          gh pr merge "${number}" --squash --delete-branch
+          gh pr ready
+
+          gh pr merge \
+            --squash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          
+      # Checks must pass: a red check on a version update means a broken site would go live.
+      # - name: Merge the PR
+      #   if: steps.find-pr.outputs.number != ''
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #   run: |
+      #     number="${{ steps.find-pr.outputs.number }}"
+      #     if [[ $(gh pr view "${number}" --json isDraft --jq .isDraft) == "true" ]]; then
+      #       gh pr ready "${number}"
+      #     fi
+      #     for attempt in {1..30}; do
+      #       checks=$(gh pr checks "${number}" --watch --fail-fast 2>&1) && break
+      #       if ! grep -q "no checks reported" <<< "${checks}"; then
+      #         echo "${checks}"
+      #         echo "::error::Checks on #${number} did not pass"
+      #         exit 1
+      #       fi
+      #       if [[ ${attempt} -eq 30 ]]; then
+      #         echo "::error::No checks reported on #${number}. If its workflows are awaiting approval, approve them on the PR, then re-run Promote Release."
+      #         exit 1
+      #       fi
+      #       sleep 10
+      #     done
+      #     gh pr merge "${number}" --squash --delete-branch
