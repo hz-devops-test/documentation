@@ -84,13 +84,14 @@ jobs:
 
       - name: 'Merge PR #${{ steps.find-pr.outputs.number }}'
         if: steps.find-pr.outputs.number != ''
-        run: |
-          gh pr ready
-
-          gh pr merge \
-            --squash
         env:
           GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr ready "${number}"
+
+          gh pr merge \
+            "${number}" \
+            --squash
           
       # Checks must pass: a red check on a version update means a broken site would go live.
       # - name: Merge the PR
