@@ -1,4 +1,4 @@
-ename: Package Release
+name: Package Release
 run-name: ${{ github.workflow }} (Platform `${{ inputs.VERSION }}`@${{ inputs.ENVIRONMENT }})
 
 # Opens the Platform release's version update as a draft PR; promote.yml merges it.
