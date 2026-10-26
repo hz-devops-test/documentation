@@ -1,7 +1,7 @@
 {
   "hazelcast": {
-    "currentSeg": "6.0-snapshot",
-    "currentLabel": "6.0-SNAPSHOT",
+    "currentSeg": "6.1-snapshot",
+    "currentLabel": "6.1-SNAPSHOT",
     "defaultVersion": "latest-release"
   },
   "operator": {

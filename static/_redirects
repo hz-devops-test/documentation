@@ -3,8 +3,8 @@
 /home       /  301!
 
 # Version aliases
-/hazelcast/latest/*              /hazelcast/5.7/:splat                 307!
-/hazelcast/latest-dev/*          /hazelcast/6.0-snapshot/:splat        307!
+/hazelcast/latest/*              /hazelcast/6.0/:splat                 307!
+/hazelcast/latest-dev/*          /hazelcast/6.1-snapshot/:splat        307!
 /management-center/latest/*      /management-center/5.12/:splat        307!
 /management-center/latest-dev/*  /management-center/5.13-snapshot/:splat  307!
 /operator/latest/*               /operator/5.20/:splat                 307!
